@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/iniHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".05"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/q1Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.17" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/midHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.43" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/q3Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.57" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/finHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".95"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/iniVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/midVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5
+" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/finVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".9" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/bits"
+        android:textColor="@color/white"
+        android:text="Detector Redes"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/iniVertical"
+        app:layout_constraintTop_toTopOf="@+id/iniHorizontal" />
+
+    <TextView
+        android:id="@+id/tvIp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bits"
+        android:text="IP:"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/iniVertical"
+        app:layout_constraintTop_toTopOf="@+id/q1Horizontal" />
+
+    <EditText
+        android:id="@+id/etIp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/finVertical"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/iniVertical"
+        app:layout_constraintTop_toBottomOf="@+id/tvIp" />
+
+    <TextView
+        android:id="@+id/tvMacara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/bits"
+        android:text="Mascara"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/iniVertical"
+        app:layout_constraintTop_toBottomOf="@+id/etIp" />
+
+    <EditText
+        android:id="@+id/etMascara"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/finVertical"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/iniVertical"
+        app:layout_constraintTop_toBottomOf="@+id/tvMacara" />
+
+    <Button
+        android:id="@+id/btnAgregar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/bits"
+        android:text="Agregar"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/q3Horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/finVertical"
+        app:layout_constraintStart_toStartOf="@+id/midVertical"
+        app:layout_constraintTop_toTopOf="@+id/midHorizontal" />
+
+    <Button
+        android:id="@+id/btnLimpiar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/bits"
+        android:text="Limpiar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/q3Horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/midVertical"
+        app:layout_constraintStart_toStartOf="@+id/iniVertical"
+        app:layout_constraintTop_toTopOf="@+id/midHorizontal" />
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Redes:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:fontFamily="@font/bits"
+        app:layout_constraintEnd_toStartOf="@+id/finVertical"
+        app:layout_constraintStart_toStartOf="@+id/iniVertical"
+        app:layout_constraintTop_toBottomOf="@+id/q3Horizontal" />
+
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toTopOf="@+id/finHorizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult"
+        app:layout_constraintVertical_bias="0.028">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardViewConsejo1"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="15dp"
+                app:strokeWidth="0dp"
+                android:backgroundTint="@color/black"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:id="@+id/tvRedesClasificadas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/bits"
+                        android:text="|||"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                        android:shadowRadius="2"
+                        android:textSize="25sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
