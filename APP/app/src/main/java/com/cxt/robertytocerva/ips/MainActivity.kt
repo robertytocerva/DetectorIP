@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
     private val redes = mutableMapOf<String, MutableList<String>>()
-
+    private var mascara:String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         btnAgregar.setOnClickListener {
             val ip = etIp.text.toString()
-            val mascara = etMascara.text.toString()
+            mascara = etMascara.text.toString()
 
             if (!validacion(ip) || !validacion(mascara)) {
                 Toast.makeText(this, "IP o máscara inválida", Toast.LENGTH_SHORT).show()
@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         val resultado = StringBuilder()
         for ((red, ips) in redes) {
             resultado.append("Red: $red\n")
+            resultado.append("\t ($mascara)\n")
             for (ip in ips) {
                 resultado.append("  ➤ $ip\n")
             }
@@ -73,10 +74,13 @@ class MainActivity : AppCompatActivity() {
     private fun validacion(ip: String): Boolean {
         val partes = ip.split(".")
         if (partes.size != 4) return false
-        return partes.all {
-            val n = it.toIntOrNull() ?: return false
-            n in 0..255
+
+        for (parte in partes) {
+            val numero = parte.toIntOrNull() ?: return false
+            if (numero !in 0..255) return false
         }
+
+        return true
     }
 
 
@@ -84,8 +88,10 @@ class MainActivity : AppCompatActivity() {
         val ipPartes = ip.split(".").map { it.toInt() }
         val maskPartes = mascara.split(".").map { it.toInt() }
 
-        return ipPartes.zip(maskPartes)
-            .map { (ipNum, maskNum) -> ipNum and maskNum }
-            .joinToString(".")
+        val red = mutableListOf<String>()
+        for (i in 0..3) {
+            red.add((ipPartes[i] and maskPartes[i]).toString())
+        }
+        return red.joinToString(".")
     }
 }
